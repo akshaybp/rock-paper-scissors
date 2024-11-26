@@ -11,18 +11,21 @@ def decide_winner(player, computer):
         return "computer"
 
 def play_game():
+    import random  # Ensure random is imported for this function
     options = ["rock", "paper", "scissors"]
     player_score = 0
     computer_score = 0
 
-    for _ in range(3):  # Best of 3 rounds
+    # Continue until either player or computer scores 3 points
+    while player_score < 3 and computer_score < 3:
         player = input("Choose rock, paper, or scissors: ").lower()
         if player not in options:
             print("Invalid choice! Try again.")
             continue
+        
         computer = random.choice(options)
         print(f"Computer chose: {computer}")
-       
+        
         result = decide_winner(player, computer)
         if result == "player":
             player_score += 1
@@ -32,15 +35,14 @@ def play_game():
             print("Computer wins this round!")
         else:
             print("It's a tie!")
-       
+        
         print(f"Score: Player {player_score}, Computer {computer_score}")
-   
-    if player_score > computer_score:
+    
+    # Check who reached 3 points first
+    if player_score == 3:
         print("Congratulations! You won the game.")
-    elif computer_score > player_score:
+    elif computer_score == 3:
         print("Sorry, the computer won the game.")
-    else:
-        print("It's a tie overall!")
 
 if __name__ == "__main__":
     play_game()
