@@ -1,4 +1,4 @@
-from game import decide_winner
+from rock_paper_scissors.game import decide_winner
 
 def test_tie():
     assert decide_winner("rock", "rock") == "tie"
