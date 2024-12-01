@@ -1,0 +1,1 @@
+from .game import play_game  # Allow play_game to be imported directly from the package
